@@ -9,29 +9,35 @@
 </head>
 
 <body>
-    <header class="header">
-        <h1>Always Sunny</h1>
+    <header>
+        <h1 class="text-center">Always Sunny</h1>
     </header>
     <main>
-        <h1>Enter Location for Sunset, Sunrise & Weather</h1>
-        <input type="text" placeholder="Enter your city name"></input>
-        <button>Select</button>
+        <h2 class="text-center">Enter Location for Sunset, Sunrise & Weather</h2>
+        <div class="row justify-center">
+            <input type="text" placeholder="Enter your city name"></input>
+            <button>Select</button>
+        </div>
 
     </main>
-    <section id="sun-section">
-        <div id="sun-card">
-            <h3 class="city-sun-header">Sunrise/Sunset</h3>
-            
-        </div>
-    </section>
 
-    <section id="weather-section">
-        <div id="weather-card">
-            <h3 class="city-weather-header">Weather</h3>
+    <div class="cards information row">
+        <section id="sun-section">
+            <div id="sun-card">
+                <h3 class="city-sun-header">Sunrise/Sunset</h3>
+
+            </div>
+        </section>
+
+        <section id="weather-section">
+            <div id="weather-card">
+                <h3 class="city-weather-header">Weather</h3>
 
 
-        </div>
-    </section>
+            </div>
+        </section>
+
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
