@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Always Sunny</title>
 </head>
+
 <body>
-    
+    <header class="header">
+        <h1>Always Sunny</h1>
+    </header>
+    <main>
+        <h1>Enter Location for Sunset, Sunrise & Weather</h1>
+        <input type="text" placeholder="Enter your city name"></input>
+        <button>Select</button>
+
+    </main>
+    <section id="sun-section">
+        <div id="sun-card">
+            <h3 class="city-sun-header">Sunrise/Sunset</h3>
+            
+        </div>
+    </section>
+
+    <section id="weather-section">
+        <div id="weather-card">
+            <h3 class="city-weather-header">Weather</h3>
+
+
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="./assets/script.js"></script>
+    <footer>
+
+    </footer>
+
+
 </body>
+
 </html>
