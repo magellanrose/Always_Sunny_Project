@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: lightslategrey;
+    display: flex;
+    padding: 12px 0;
+    margin-bottom: 12px;
+    justify-content: center;
+}
+
+body{
+    
+    background: #222;
+}
+footer{
+    background-color: lightslategray;
+}
+
+.row, .column {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.text-center {
+    text-align: center;
+}
+
+input {
+    padding: 3px 24px;
+}
+
+.cards {
+    justify-content: center;
+    flex: 1
+}
+
+#sun-section, #weather-section {
+    padding: 100px 200px;
+    margin: 12px;
+    background-color: lightslategray;
+}
