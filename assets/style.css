@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     color: white;
@@ -6,22 +6,29 @@
 }
 
 header {
-    background-color: lightslategrey;
+    background-color: rgb(69, 150, 231);
     display: flex;
     padding: 12px 0;
     margin-bottom: 12px;
     justify-content: center;
 }
 
-body{
-    
+body {
+
     background: #222;
 }
-footer{
+
+footer {
     background-color: lightslategray;
 }
 
-.row, .column {
+button {
+    background-color: lightslategray;
+    width: 80px;
+    margin-left: 10px;
+}
+
+.row {
     display: flex;
 }
 
@@ -47,11 +54,18 @@ input {
 
 .cards {
     justify-content: center;
-    flex: 1
+    align-items: center;
+
+    @media(max-width:500px) {
+        flex-direction: column;
+    }
 }
 
-#sun-section, #weather-section {
-    padding: 100px 200px;
-    margin: 12px;
+#sun-section,
+#weather-section {
+    display: flex;
+    margin: 25px 12px 12px 12px;
     background-color: lightslategray;
+    height: 65vh;
+    width: 65vw;
 }
