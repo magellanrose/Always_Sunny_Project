@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css">
     <title>Always Sunny</title>
 </head>
@@ -27,19 +30,23 @@
             <div class="text-center">
                 <h2 class="city-sun-header">Sunrise/Sunset</h2>
 
-                <div class="d-flex align-items-center">
-                    <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
-                    <h3 id="sunrise"></h3>
-                </div>
+                <div class="d-flex flex-column justify-content-between">
 
-                <div class="d-flex align-items-center">
-                    <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
-                    <h3 id="golden-hour"></h3>
-                </div>
+                    <div class="d-flex align-items-center">
+                        <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
+                        <h3 id="sunrise"></h3>
+                    </div>
 
-                <div class="d-flex align-items-center">
-                    <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
-                    <h3 id="sunset"></h3>
+                    <div class="d-flex align-items-center">
+                        <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
+                        <h3 id="golden-hour"></h3>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
+                        <h3 id="sunset"></h3>
+                    </div>
+
                 </div>
 
             </div>
@@ -48,11 +55,15 @@
         <div id="weather-card">
             <div class="text-center">
                 <h2 class="city-weather-header">Weather</h2>
-                <h3 id="current-humidity"></h3>
-                <h3 id="current-temperature"></h3>
-                <h3 id="current-windspeed"></h3>
+                <div class="d-flex align-items-center">
+                    <h3 id="current-temperature"></h3>
+                    <h3 id="current-humidity"></h3>
+                    <h3 id="current-windspeed"></h3>
+                </div>
+
             </div>
         </div>
+
 
     </section>
 
@@ -61,8 +72,9 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="./assets/script.js"></script>
-    <footer>
-
+    <footer class="d-flex justify-content-between">
+        <p> Developers: JV, FL, NV & JS</p>
+        <p>© 2024</p>
     </footer>
 
 
