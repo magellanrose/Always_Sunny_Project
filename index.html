@@ -16,42 +16,45 @@
     <main>
         <h2 class="text-center">Enter Location for Sunset, Sunrise & Weather</h2>
         <div class="input-div d-flex justify-content-center">
-            <input type="text" placeholder="Enter your city name"></input>
-            <button>Select</button>
+            <input type="text" id="search-text" placeholder="Enter your city name"></input>
+            <button id="search-btn">Select</button>
         </div>
 
     </main>
 
     <section class="cards d-flex justify-content-center">
-            <div id="sun-card">
-                <div class="text-center">
-                    <h2 class="city-sun-header">Sunrise/Sunset</h2>
-                   
-                    <div class="d-flex align-items-center">
-                        <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
+        <div id="sun-card">
+            <div class="text-center">
+                <h2 class="city-sun-header">Sunrise/Sunset</h2>
+
+                <div class="d-flex align-items-center">
+                    <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
                     <h3>Sunrise: 6:30 PM</h3>
-                    </div>
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
                     <h3>Golden Hour 4:30 PM</h3>
-                    </div>
-                   
-                    <div class="d-flex align-items-center">
-                        <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png">
                     <h3>Sunset: 6:30 PM</h3>
-                    </div>
-
                 </div>
-            </div>
 
-            <div id="weather-card">
-                <div class="text-center">
-                    <h2 class="city-weather-header">Weather</h2>
-                </div>
             </div>
+        </div>
 
-        </section>
+        <div id="weather-card">
+            <div class="text-center">
+                <h2 class="city-weather-header">Weather</h2>
+                <h3 id="current-humidity"></h3>
+                <h3 id="current-temperature"></h3>
+                <h3 id="current-windspeed"></h3>
+            </div>
+        </div>
+
+    </section>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
