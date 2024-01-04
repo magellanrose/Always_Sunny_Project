@@ -1,5 +1,6 @@
 var searchInput = $('#search-text');
 var searchBtn = $('#search-btn');
+
 var city = searchInput.val();
 
 
@@ -15,10 +16,31 @@ function getCurrentForecast() {
             var currentTemperature = data.main.temp;
             var currentWindSpeed = data.wind.speed;
             $('#current-humidity').text("Humidity: " + currentHumidity + " %");
-            $('#current-temperature').text("Temperature: " + currentTemperature + " &#8457");
+            $('#current-temperature').text("Temperature: " + currentTemperature + `&#8457`);
             $('#current-windspeed').text("Wind Speed: " + currentWindSpeed + " mph")
+            var sunsetURL = `https://api.sunrisesunset.io/json?lat=${data.coord.lat}&lng=${data.coord.lon}`
+            storeCityInLocalStorage(data.coord);
+            $.get(sunsetURL)
+                .then(function (sunData){
+                    
+                    console.log(sunData)
+                })
+            console.log(data)
         })
-        console.log(city)
+}
+
+
+function storeCityInLocalStorage(coord) {
+    
+    if (typeof(Storage) !== 'undefined') {
+     
+        localStorage.setItem('lon', coord.lon);
+        localStorage.setItem('lat', coord.lat);
+        +localStorage.getItem('lon')
+        +localStorage.getItem('lat')
+    } else {
+        console.error('Local storage is not supported.');
+    }
 }
 
 searchBtn.click(function () {
