@@ -16,14 +16,21 @@ function getCurrentForecast() {
             var currentTemperature = data.main.temp;
             var currentWindSpeed = data.wind.speed;
             $('#current-humidity').text("Humidity: " + currentHumidity + " %");
-            $('#current-temperature').text("Temperature: " + currentTemperature + `&#8457`);
+            $('#current-temperature').text("Temperature: " + currentTemperature + `°F`);
             $('#current-windspeed').text("Wind Speed: " + currentWindSpeed + " mph")
             var sunsetURL = `https://api.sunrisesunset.io/json?lat=${data.coord.lat}&lng=${data.coord.lon}`
             storeCityInLocalStorage(data.coord);
             $.get(sunsetURL)
                 .then(function (sunData){
-                    
+                    var sunriseTime = sunData.results.sunrise;
+                    var goldenHourTime = sunData.results.golden_hour;
+                    var sunsetTime = sunData.results.sunset;
+                    $('#sunrise').text(`Sunrise:  ${sunriseTime}`)
+                    $('#golden-hour').text(`Golden Hour: ${goldenHourTime}`)
+                    $('#sunset').text(`Sunset: ${sunsetTime}`)
+
                     console.log(sunData)
+                    console.log(sunData.results.sunrise)
                 })
             console.log(data)
         })
