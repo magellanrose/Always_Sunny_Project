@@ -3,6 +3,7 @@
     --secondary-color: white;
     --accent-color: #D97C2B;
     --secondary-accent-color:#53787E; 
+    --button-hover-color:#79AFB7; 
 }
 
 * {
@@ -14,6 +15,7 @@
 
 body {
     background-color: var(--primary-color);
+   
 }
 
 h2 {
@@ -49,12 +51,20 @@ button {
     border-style: none;
 }
 
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
 input {
     color: black;
     width: 450px;
     padding: 6px 24px;
     border-radius: 6px;
     border-style: none;
+}
+
+input:focus {
+    outline: none;
 }
 
 .input-div {
@@ -73,13 +83,28 @@ input {
 #sun-card,
 #weather-card {
     margin: 24px 18px;
-    padding: 24px 12px;
+    padding: 24px 48px;
     background-color: var(--accent-color);
     height: 75vh;
     width: 40%;
-    /* min-width: 300px; */
+    min-width: 425px;
+    min-height: 600px;
     border-radius: 10px;
     
+}
+
+#sun-card img {
+    width: 175px;
+}
+
+#sunrise-title,
+#golden-hour-title,
+#sunset-title {
+    font-weight: 600;
+}
+
+.card-content {
+    margin-top: 36px;
 }
 
 #sun-card,
@@ -91,8 +116,4 @@ input {
         margin: 24px auto;
         
     }
-}
-
-#sun-card img {
-    width: 125px;
 }
