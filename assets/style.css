@@ -82,6 +82,7 @@ input:focus {
 
 #sun-card,
 #weather-card {
+    
     margin: 24px 18px;
     padding: 24px 48px;
     background-color: var(--accent-color);
@@ -116,4 +117,14 @@ input:focus {
         margin: 24px auto;
         
     }
+}
+
+#sun-card img {
+    width: 125px;
+}
+#image-selector{
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    margin: 20px;
 }
