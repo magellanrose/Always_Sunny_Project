@@ -96,3 +96,9 @@ input {
 #sun-card img {
     width: 125px;
 }
+#image-selector{
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    margin: 20px;
+}
