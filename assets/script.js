@@ -1,12 +1,16 @@
 var searchInput = $('#search-text');
-var searchBtn = $('#search-btn');
-var modalBtn = $('#modal-btn')
-var historyModal = $('#history-modal')
-
 var city = searchInput.val();
 
+var searchBtn = $('#search-btn');
+var modalBtn = $('#modal-btn')
+var historyBtn = $('#history-btn');
+
+var modalBody = $('.modal-body')
+var historyModal = $('.modal-content')
+var historyModal = new bootstrap.Modal('#history-modal', {});
 
 var apiKey = '0ea7d7cb0bccf9d8193db521824c2fad';
+
 
 
 // This function brings the current weather from the weather API
@@ -38,11 +42,10 @@ function getCurrentForecast(coords) {
 
 
                 })
-            console.log(data)
         })
 }
 
-
+// Store coordinates to local storage
 function storeCityInLocalStorage(coord) {
 
     if (typeof (Storage) !== 'undefined') {
@@ -51,83 +54,79 @@ function storeCityInLocalStorage(coord) {
         localStorage.setItem('lat', coord.lat);
         +localStorage.getItem('lon')
             + localStorage.getItem('lat')
+
     } else {
         console.error('Local storage is not supported.');
     }
 }
 
+// Ask user for current location
 function getUserLocation() {
     navigator.geolocation.getCurrentPosition(function (data) {
         getCurrentForecast(data.coords)
     })
 }
+
+// Getting search history from local storage
 function getSearchHistory() {
     var rawDataHistory = localStorage.getItem('search-history');
     var history = JSON.parse(rawDataHistory) || [];
     return history;
 }
 
+// Saving search history to local storage and avoiding duplicates
 function saveSearchHistory() {
     var history = getSearchHistory();
-    if (!history.includes(city)) {
+    var lowerCased = history.map(function (city) {
+        return city.toLowerCase();
+    });
+    if (!lowerCased.includes(city.toLowerCase())) {
         history.push(city);
         localStorage.setItem('search-history', JSON.stringify(history));
     }
 }
 
-
+// Outputting saved searches to modal
 function searchHistoryOutput() {
-    var citySearched = localStorage.getItem('search-history');
-    if (citySearched) {
-        var cities = JSON.parse(citySearched);
-        var historyOutput = document.querySelector("#history-output");
-        cities.forEach(function (citySearched) {
-            var button = document.createElement("button");
-            button.textContent = citySearched;
-            historyOutput.appendChild(button);
-        })
+    var citySearched = localStorage.getItem('search-history')
+    var savedCitySearched = JSON.parse(citySearched) || [];
+
+    if (savedCitySearched.length) {
+        modalBody.empty();
+
+        for (i = 0; i < savedCitySearched.length; i++) {
+            modalBody.append(`
+            <button>${savedCitySearched[i]}</button>
+                  `)
+            if (i === 8) {
+                break;
+            }
+
+        }
+
+        historyModal.show();
     }
 
 }
-$('#history-output').on('click', 'button', function () {
-    city = $(this).text()
-    getCurrentForecast();
-    getsunData();
 
+// Frunction for buttons inside hisory modal to get weather/ sun information 
+$('#history-output').on('click', 'button', function () {
+    city = $(this).text();
+    getCurrentForecast();
 
 });
 
+// Click events
+historyBtn.click(searchHistoryOutput);
 searchBtn.click(function () {
     city = searchInput.val();
+    saveSearchHistory();
     getCurrentForecast();
-    getsunData();
-
 });
-
-modalBtn.click(function () {
-    historyModal.removeClass('hide')
-});
-
-
 
 getUserLocation();
 
+
 document.addEventListener('DOMContentLoaded', function () {
-    var openModalBtn = document.getElementById('openModalBtn');
-    var closeModalBtn = document.getElementById('closeModalBtn');
-    var modal = document.getElementById('myModal');
 
-    openModalBtn.addEventListener('click', function () {
-        modal.style.display = 'block';
-    });
-
-    closeModalBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', function (event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    });
 });
