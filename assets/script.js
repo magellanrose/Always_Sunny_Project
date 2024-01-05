@@ -1,5 +1,7 @@
 var searchInput = $('#search-text');
 var searchBtn = $('#search-btn');
+var modalBtn = $('#modal-btn')
+var historyModal = $('#history-modal')
 
 var city = searchInput.val();
 
@@ -30,12 +32,11 @@ function getCurrentForecast(coords) {
                     var sunriseTime = sunData.results.sunrise;
                     var goldenHourTime = sunData.results.golden_hour;
                     var sunsetTime = sunData.results.sunset;
-                    $('#sunrise').text(`Sunrise:  ${sunriseTime}`)
-                    $('#golden-hour').text(`Golden Hour: ${goldenHourTime}`)
-                    $('#sunset').text(`Sunset: ${sunsetTime}`)
+                    $('#sunrise').text(`${sunriseTime}`)
+                    $('#golden-hour').text(`${goldenHourTime}`)
+                    $('#sunset').text(`${sunsetTime}`)
 
-                    console.log(sunData)
-                    console.log(sunData.results.sunrise)
+
                 })
             console.log(data)
         })
@@ -60,9 +61,73 @@ function getUserLocation() {
         getCurrentForecast(data.coords)
     })
 }
+function getSearchHistory() {
+    var rawDataHistory = localStorage.getItem('search-history');
+    var history = JSON.parse(rawDataHistory) || [];
+    return history;
+}
+
+function saveSearchHistory() {
+    var history = getSearchHistory();
+    if (!history.includes(city)) {
+        history.push(city);
+        localStorage.setItem('search-history', JSON.stringify(history));
+    }
+}
+
+
+function searchHistoryOutput() {
+    var citySearched = localStorage.getItem('search-history');
+    if (citySearched) {
+        var cities = JSON.parse(citySearched);
+        var historyOutput = document.querySelector("#history-output");
+        cities.forEach(function (citySearched) {
+            var button = document.createElement("button");
+            button.textContent = citySearched;
+            historyOutput.appendChild(button);
+        })
+    }
+
+}
+$('#history-output').on('click', 'button', function () {
+    city = $(this).text()
+    getCurrentForecast();
+    getsunData();
+
+
+});
+
 searchBtn.click(function () {
     city = searchInput.val();
     getCurrentForecast();
+    getsunData();
 
 });
+
+modalBtn.click(function () {
+    historyModal.removeClass('hide')
+});
+
+
+
 getUserLocation();
+
+document.addEventListener('DOMContentLoaded', function () {
+    var openModalBtn = document.getElementById('openModalBtn');
+    var closeModalBtn = document.getElementById('closeModalBtn');
+    var modal = document.getElementById('myModal');
+
+    openModalBtn.addEventListener('click', function () {
+        modal.style.display = 'block';
+    });
+
+    closeModalBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+});

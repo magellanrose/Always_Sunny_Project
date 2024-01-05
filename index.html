@@ -21,44 +21,52 @@
         <div class="input-div d-flex justify-content-center">
             <input type="text" id="search-text" placeholder="Enter your city name"></input>
             <button id="search-btn">Submit</button>
+            <button id="openModalBtn">History</button>
+
         </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <p>!!!!!!!!!!!!!!!!!</p>
+            </div>
+    </div>
 
     </main>
 
     <section class="cards d-flex justify-content-center">
         <div id="sun-card">
-            
-                <h2 class="city-sun-header text-center">Sunrise/Sunset</h2>
 
-                <div class="card-content d-flex flex-column">
-                    
-                    <img class="mx-auto" src="./assets/images/sunrise-icon.png" alt="sunrise icon">
-                    <div class="d-flex justify-content-between">
-                        <h3 id="sunrise-title">Sunrise Time:</h3>
-                        <h3 id="sunrise">7:00:00 AM</h3>
-                    </div>
+            <h2 class="city-sun-header text-center">Sunrise/Sunset</h2>
 
+            <div class="card-content d-flex flex-column">
 
-
-
-
-                    <img class="mx-auto"  src="./assets/images/golde-hour-icon.png" alt="golden hour icon">
-                    <div class="d-flex justify-content-between">
-                        <h3 id="golden-hour-title">Golden Hour:</h3>
-                        <h3 id="golden-hour">7:00:00 AM</h3>
-                    </div>
-
-
-                    <img class="mx-auto"  src="./assets/images/sunset-icon.png" alt="sunset icon">
-                    <div class="d-flex justify-content-between">
-                        <h3 id="sunset-title">Sunset Time:</h3>
-                        <h3 id="sunset">7:00:00 AM</h3>
-                    </div>
-                    
-
+                <img class="mx-auto" src="./assets/images/sunrise-icon.png" alt="sunrise icon">
+                <div class="d-flex justify-content-between">
+                    <h3 id="sunrise-title">Sunrise Time:</h3>
+                    <h3 id="sunrise">7:00:00 AM</h3>
                 </div>
 
-            
+
+
+
+
+                <img class="mx-auto" src="./assets/images/golde-hour-icon.png" alt="golden hour icon">
+                <div class="d-flex justify-content-between">
+                    <h3 id="golden-hour-title">Golden Hour:</h3>
+                    <h3 id="golden-hour">7:00:00 AM</h3>
+                </div>
+
+
+                <img class="mx-auto" src="./assets/images/sunset-icon.png" alt="sunset icon">
+                <div class="d-flex justify-content-between">
+                    <h3 id="sunset-title">Sunset Time:</h3>
+                    <h3 id="sunset">7:00:00 AM</h3>
+                </div>
+
+
+            </div>
+
+
         </div>
 
         <div id="weather-card">
