@@ -17,19 +17,31 @@
         <h1 class="text-center">Always Sunny</h1>
     </header>
     <main>
+
         <h2 class="text-center">Enter Location for Sunset, Sunrise & Weather</h2>
         <div class="input-div d-flex justify-content-center">
             <input type="text" id="search-text" placeholder="Enter your city name"></input>
             <button id="search-btn">Submit</button>
-            <button id="openModalBtn">History</button>
+            <button id="history-btn">History</button>
 
         </div>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeModalBtn">&times;</span>
-                <p>!!!!!!!!!!!!!!!!!</p>
+        <div id="history-modal" data-bs-theme="dark" class="modal fade mt-3" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">History</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
             </div>
-    </div>
+        </div>
 
     </main>
 
@@ -46,16 +58,11 @@
                     <h3 id="sunrise">7:00:00 AM</h3>
                 </div>
 
-
-
-
-
                 <img class="mx-auto" src="./assets/images/golde-hour-icon.png" alt="golden hour icon">
                 <div class="d-flex justify-content-between">
                     <h3 id="golden-hour-title">Golden Hour:</h3>
                     <h3 id="golden-hour">7:00:00 AM</h3>
                 </div>
-
 
                 <img class="mx-auto" src="./assets/images/sunset-icon.png" alt="sunset icon">
                 <div class="d-flex justify-content-between">
@@ -63,9 +70,7 @@
                     <h3 id="sunset">7:00:00 AM</h3>
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -91,27 +96,19 @@
 
                 </div>
 
-                <!-- <div class="d-flex align-items-center">
-                    <h3 id="current-temperature"></h3>
-                    <h3 id="current-humidity"></h3>
-                    <h3 id="current-windspeed"></h3>
-                </div> -->
-
-            </div>
-        </div>
-
 
     </section>
 
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-    <script src="./assets/script.js"></script>
     <footer class="d-flex justify-content-between">
         <p> Developers: JV, FL, NV & JS</p>
         <p>© 2024</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/script.js"></script>
 
 
 </body>
