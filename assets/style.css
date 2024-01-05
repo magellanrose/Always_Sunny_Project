@@ -72,6 +72,7 @@ input {
 
 #sun-card,
 #weather-card {
+    
     margin: 24px 18px;
     padding: 24px 12px;
     background-color: var(--accent-color);
