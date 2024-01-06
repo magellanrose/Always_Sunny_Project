@@ -35,7 +35,6 @@ Jasvinder Github: https://github.com/jsaini1727<br>
 Jessica Github: https://github.com/Jlvstrasse
 
 ## Mock Up
-![Mock-up](./assets/images/Screenshot%20(9).png)
-
+![Mock-up](./assets/images/Screenshot%20(10).png)
 
 
