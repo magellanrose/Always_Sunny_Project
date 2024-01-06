@@ -130,3 +130,6 @@ input:focus {
         
     }
 }
+button:disabled{
+    background-color: red !important;
+}
