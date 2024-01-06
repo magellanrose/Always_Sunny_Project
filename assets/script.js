@@ -4,12 +4,24 @@ var city = searchInput.val();
 var searchBtn = $('#search-btn');
 var modalBtn = $('#modal-btn')
 var historyBtn = $('#history-btn');
+var launchModal = $('#launchModal')
 
 var modalBody = $('.modal-body')
 var historyModal = $('.modal-content')
 var historyModal = new bootstrap.Modal('#history-modal', {});
 
 var apiKey = '0ea7d7cb0bccf9d8193db521824c2fad';
+var localStorageData = JSON.parse(localStorage.getItem('search-history')) || []
+
+
+
+
+if (localStorageData.length > 0) {
+    historyBtn.prop('disabled', false)
+}
+
+
+
 
 
 
@@ -31,6 +43,9 @@ function getCurrentForecast(coords) {
             $('#current-windspeed').text("Wind Speed: " + currentWindSpeed + " mph")
             var sunsetURL = `https://api.sunrisesunset.io/json?lat=${data.coord.lat}&lng=${data.coord.lon}`
             storeCityInLocalStorage(data.coord);
+
+            historyBtn.prop('disabled', false)
+
             $.get(sunsetURL)
                 .then(function (sunData) {
                     var sunriseTime = sunData.results.sunrise;
@@ -109,12 +124,8 @@ function searchHistoryOutput() {
 
 }
 
-// Frunction for buttons inside hisory modal to get weather/ sun information 
-$('#history-output').on('click', 'button', function () {
-    city = $(this).text();
-    getCurrentForecast();
+// Function for buttons inside history modal to get weather/ sun information 
 
-});
 
 // Click events
 historyBtn.click(searchHistoryOutput);
@@ -126,6 +137,19 @@ searchBtn.click(function () {
 
 getUserLocation();
 
+// This function allows us to get the weather and the sun information for all the elements in the history element by clicking on them in the history modal.
+
+$('#history-output').on('click', 'button', function () {
+    city = $(this).text();
+    getCurrentForecast();
+
+});
+
+// This enable the history modal to hide once an element within the modal is clicked
+
+$("#history-output").click(function () {
+    $("#history-modal").hide();
+});
 
 document.addEventListener('DOMContentLoaded', function () {
 
