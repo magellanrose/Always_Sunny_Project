@@ -17,7 +17,7 @@ var historyModal = new bootstrap.Modal('#history-modal', {});
 var apiKey = '0ea7d7cb0bccf9d8193db521824c2fad';
 var localStorageData = JSON.parse(localStorage.getItem('search-history')) || []
 
-var searchHistory = getSearchHistory ();
+var searchHistory = getSearchHistory();
 
 
 // This function brings the current weather from the weather API
@@ -35,7 +35,7 @@ function getCurrentForecast(coords) {
             var currentHumidity = data.main.humidity;
             var currentTemperature = data.main.temp;
             var currentWindSpeed = data.wind.speed;
-            
+
             cityDate.text(`${city}, ${currentDate.format('MMMM, D, YYYY')}`)
             $('#current-humidity').text(`${currentHumidity} %`);
             $('#current-temperature').text(`${currentTemperature} °F`);
@@ -128,10 +128,10 @@ function searchHistoryOutput() {
 historyBtn.click(searchHistoryOutput);
 searchBtn.click(function () {
     city = searchInput.val();
-   
+
     if (city) {
-    saveSearchHistory();
-    getCurrentForecast();
+        saveSearchHistory();
+        getCurrentForecast();
     }
 });
 
@@ -140,7 +140,7 @@ searchBtn.click(function () {
 $('#history-output').on('click', 'button', function () {
     city = $(this).text();
     getCurrentForecast();
-    
+
 });
 
 // This enable the history modal to hide once an element within the modal is clicked
