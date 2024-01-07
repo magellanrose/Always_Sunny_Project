@@ -2,10 +2,11 @@
 
 ## Description
 
-This is a website where the user enters a city and it will output when the sunset, sunrise, golden hour, and the weather of the city using two seperate API's. You can interact with the website by entering a city into the search bar. History button will open a modal with cities that you recently searched.
+This is a website where the user inputs a city to know the weather details as well as the sun times namely the surise, the sunset, etc. This is accomplished using two seperate API's. Initially if the User gives access to their location they will have the same details for their neighborhood. The user can also use the History button which will open a modal with cities that they have recently searched and on selecting any of the buttons within the modal they will get the weather and the sun times too.
+Welcome to Always Sunny and do not forget to make the most of the Golden Hour.
 
 ## Technologies
-HTML, CSS, JAVASCRIPT
+HTML, CSS, JAVASCRIPT, JQuery
 
 ## Installation:
 No dependencies are required to make the application work.
@@ -35,6 +36,6 @@ Jasvinder Github: https://github.com/jsaini1727<br>
 Jessica Github: https://github.com/Jlvstrasse
 
 ## Mock Up
-![Mock-up](./assets/images/Screenshot%20(10).png)
+![Mock-up](./assets/images/Screenshot%20weatherApp.png)
 
 
