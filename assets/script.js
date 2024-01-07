@@ -6,7 +6,9 @@ var city = searchInput.val();
 var searchBtn = $('#search-btn');
 var modalBtn = $('#modal-btn')
 var historyBtn = $('#history-btn');
+var cityDate = $('#city-date-title')
 var launchModal = $('#launchModal')
+
 
 var modalBody = $('.modal-body')
 var historyModal = $('.modal-content')
@@ -22,7 +24,7 @@ var searchHistory = getSearchHistory ();
 function getCurrentForecast(coords) {
     var currentForecast = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
-    
+
 
     if (coords) {
         currentForecast = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${apiKey}&units=imperial`;
@@ -33,6 +35,8 @@ function getCurrentForecast(coords) {
             var currentHumidity = data.main.humidity;
             var currentTemperature = data.main.temp;
             var currentWindSpeed = data.wind.speed;
+            
+            cityDate.text(`${city}, ${currentDate.format('MMMM, D, YYYY')}`)
             $('#current-humidity').text(`${currentHumidity} %`);
             $('#current-temperature').text(`${currentTemperature} °F`);
             $('#current-windspeed').text(`${currentWindSpeed} MPH`)
