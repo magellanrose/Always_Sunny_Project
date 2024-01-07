@@ -22,7 +22,7 @@
         <div class="input-div d-flex justify-content-center">
             <input type="text" id="search-text" placeholder="Enter your city name"></input>
             <button id="search-btn">Submit</button>
-            <button id="history-btn" disabled="disabled">History</button>
+            <button id="history-btn" class="hide">History</button>
             <!-- <button type="button" class="btn btn-primary" id="launchModal" data-bs-toggle="modal"
                 data-bs-target="#exampleModal" disabled="disabled">
                 Launch demo modal
@@ -77,21 +77,21 @@
 
             <div class="card-content d-flex flex-column">
 
-                <img class="mx-auto" src="./assets/images/sunrise-icon.png" alt="sunrise icon">
+                <img class="mx-auto sun-icons" src="./assets/images/sunrise-icon.svg" alt="sunrise icon">
                 <div class="d-flex justify-content-between">
-                    <h3 id="sunrise-title">Sunrise Time:</h3>
+                    <h3 class="titles">Sunrise Time:</h3>
                     <h3 id="sunrise">7:00:00 AM</h3>
                 </div>
 
-                <img class="mx-auto" src="./assets/images/golde-hour-icon.png" alt="golden hour icon">
+                <img class="mx-auto sun-icons" src="./assets/images/golde-hour-icon.svg" alt="golden hour icon">
                 <div class="d-flex justify-content-between">
-                    <h3 id="golden-hour-title">Golden Hour:</h3>
+                    <h3 class="titles">Golden Hour:</h3>
                     <h3 id="golden-hour">7:00:00 AM</h3>
                 </div>
 
-                <img class="mx-auto" src="./assets/images/sunset-icon.png" alt="sunset icon">
+                <img class="mx-auto sun-icons" src="./assets/images/sunset-icon.svg" alt="sunset icon">
                 <div class="d-flex justify-content-between">
-                    <h3 id="sunset-title">Sunset Time:</h3>
+                    <h3 class="titles">Sunset Time:</h3>
                     <h3 id="sunset">7:00:00 AM</h3>
                 </div>
 
@@ -100,26 +100,30 @@
         </div>
 
         <div id="weather-card">
-            <div class="text-center">
-                <h2 class="city-weather-header">Weather</h2>
-                <div class="d-flex flex-column justify-content-between">
+            
+                <h2 class="city-weather-header text-center">Weather</h2>
 
-                    <div class="d-flex align-items-center">
-                        <img id="image-selector" src="assets/images/mist.png">
+                <div class="card-content d-flex flex-column">
+
+                    <img class="mx-auto weather-icons" src="assets/images/temp-icon.svg">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="titles">Temperature:</h3>
                         <h3 id="current-temperature"></h3>
                     </div>
 
-                    <div class="d-flex align-items-center">
-                        <img id="image-selector" src="assets/images/humidity.png">
+                    <img class="mx-auto weather-icons" src="assets/images/humidity-icon.svg">
+                    <div class="d-flex justify-content-between">
+                         <h3 class="titles">Humidity:</h3>
                         <h3 id="current-humidity"></h3>
                     </div>
 
-                    <div class="d-flex align-items-center">
-                        <img id="image-selector" src="assets/images/wind.png">
+                    <img class="mx-auto weather-icons" src="assets/images/wind-icon.svg">
+                    <div class="d-flex justify-content-between">
+                         <h3 class="titles">Wind Speed:</h3>
                         <h3 id="current-windspeed"></h3>
                     </div>
 
-                </div>
+            
 
 
     </section>

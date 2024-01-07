@@ -42,13 +42,15 @@ header h1 {
 footer {
     background-color: var(--secondary-accent-color);
     margin-top: 36px;
-    padding: 15px;
+    padding: 24px;
 }
 
 button {
+    padding: 3px;
+    margin: 6px 0;
     background-color: var(--secondary-accent-color);
-    width: 100px;
-    height: 36px;
+    min-width: 100px;
+    /* min-height: 36px; */
     margin-left: 10px;
     border-radius: 6px;
     border-style: none;
@@ -96,29 +98,25 @@ input:focus {
   
 }
 
-#sun-card img {
+.sun-icons, .weather-icons {
     width: 175px;
+    margin: 12px 0;
 }
 
-#sunrise-title,
-#golden-hour-title,
-#sunset-title {
+.titles {
     font-weight: 600;
 }
 
 .card-content {
-    margin-top: 36px;
+    margin-top: 12px;
 }
 
-#sun-card img {
-    width: 125px;
-}
-#image-selector{
+/* #image-selector{
     width: 90px;
     height: 90px;
     padding: 10px;
     margin: 20px;
-}
+} */
 
 #sun-card,
 #weather-card {
