@@ -36,7 +36,12 @@ function getCurrentForecast(coords) {
             var currentTemperature = data.main.temp;
             var currentWindSpeed = data.wind.speed;
 
+            if (!city == []) {
             cityDate.text(`${city}, ${currentDate.format('MMMM, D, YYYY')}`)
+            } else {
+                cityDate.text(`Current Location, ${currentDate.format('MMMM, D, YYYY')}`)
+            }
+
             $('#current-humidity').text(`${currentHumidity} %`);
             $('#current-temperature').text(`${currentTemperature} °F`);
             $('#current-windspeed').text(`${currentWindSpeed} MPH`)
