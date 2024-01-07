@@ -1,3 +1,5 @@
+var currentDate = dayjs();
+
 var searchInput = $('#search-text');
 var city = searchInput.val();
 
@@ -13,21 +15,14 @@ var historyModal = new bootstrap.Modal('#history-modal', {});
 var apiKey = '0ea7d7cb0bccf9d8193db521824c2fad';
 var localStorageData = JSON.parse(localStorage.getItem('search-history')) || []
 
-
-
-
-if (localStorageData.length > 0) {
-    historyBtn.prop('disabled', false)
-}
-
-
-
-
+var searchHistory = getSearchHistory ();
 
 
 // This function brings the current weather from the weather API
 function getCurrentForecast(coords) {
     var currentForecast = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+    
 
     if (coords) {
         currentForecast = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${apiKey}&units=imperial`;
@@ -38,9 +33,9 @@ function getCurrentForecast(coords) {
             var currentHumidity = data.main.humidity;
             var currentTemperature = data.main.temp;
             var currentWindSpeed = data.wind.speed;
-            $('#current-humidity').text("Humidity: " + currentHumidity + " %");
-            $('#current-temperature').text("Temperature: " + currentTemperature + `°F`);
-            $('#current-windspeed').text("Wind Speed: " + currentWindSpeed + " mph")
+            $('#current-humidity').text(`${currentHumidity} %`);
+            $('#current-temperature').text(`${currentTemperature} °F`);
+            $('#current-windspeed').text(`${currentWindSpeed} MPH`)
             var sunsetURL = `https://api.sunrisesunset.io/json?lat=${data.coord.lat}&lng=${data.coord.lon}`
             storeCityInLocalStorage(data.coord);
 
@@ -91,6 +86,7 @@ function getSearchHistory() {
 
 // Saving search history to local storage and avoiding duplicates
 function saveSearchHistory() {
+
     var history = getSearchHistory();
     var lowerCased = history.map(function (city) {
         return city.toLowerCase();
@@ -124,33 +120,34 @@ function searchHistoryOutput() {
 
 }
 
-// Function for buttons inside history modal to get weather/ sun information 
-
-
 // Click events
 historyBtn.click(searchHistoryOutput);
 searchBtn.click(function () {
     city = searchInput.val();
+   
+    if (city) {
     saveSearchHistory();
     getCurrentForecast();
+    }
 });
-
-getUserLocation();
 
 // This function allows us to get the weather and the sun information for all the elements in the history element by clicking on them in the history modal.
 
 $('#history-output').on('click', 'button', function () {
     city = $(this).text();
     getCurrentForecast();
-
+    
 });
 
 // This enable the history modal to hide once an element within the modal is clicked
 
 $("#history-output").click(function () {
-    $("#history-modal").hide();
+
+    historyModal.hide();
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+getUserLocation();
 
-});
+if (searchHistory.length) {
+    historyBtn.removeClass('hide');
+}
