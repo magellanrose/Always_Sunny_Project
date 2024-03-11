@@ -36,10 +36,11 @@ function getCurrentForecast(coords) {
             var currentTemperature = data.main.temp;
             var currentWindSpeed = data.wind.speed;
 
-            if (!city == []) {
-            cityDate.text(`${city}, ${currentDate.format('MMMM, DD, YYYY')}`)
+            if (city.trim() !== "") {
+                var formattedCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+                cityDate.text(`${formattedCity}, ${currentDate.format('MMMM, DD, YYYY')}`);
             } else {
-                cityDate.text(`Current Location, ${currentDate.format('MMMM, DD, YYYY')}`)
+                cityDate.text(`Current Location, ${currentDate.format('MMMM, DD, YYYY')}`);
             }
 
             $('#current-humidity').text(`${currentHumidity} %`);
@@ -95,38 +96,53 @@ function getSearchHistory() {
 
 // Saving search history to local storage and avoiding duplicates
 function saveSearchHistory() {
-
     var history = getSearchHistory();
     var lowerCased = history.map(function (city) {
         return city.toLowerCase();
     });
-    if (!lowerCased.includes(city.toLowerCase())) {
-        history.push(city);
+
+    var trimmedCity = city.trim();
+    
+    if (trimmedCity !== "") {
+        var index = lowerCased.indexOf(trimmedCity.toLowerCase());
+        if (index !== -1) {
+            // If the city already exists in history, remove it
+            history.splice(index, 1);
+        }
+        
+        // Add the city to the end of the history array
+        history.push(trimmedCity);
+
+        // Keep only the most recent 8 searches
+        if (history.length > 8) {
+            history = history.slice(-8);
+        }
+
         localStorage.setItem('search-history', JSON.stringify(history));
     }
 }
 
+
 // Outputting saved searches to modal
 function searchHistoryOutput() {
-    var citySearched = localStorage.getItem('search-history')
+    var citySearched = localStorage.getItem('search-history');
     var savedCitySearched = JSON.parse(citySearched) || [];
 
     if (savedCitySearched.length) {
         modalBody.empty();
 
-        for (i = 0; i < savedCitySearched.length; i++) {
-            modalBody.append(`
-            <button>${savedCitySearched[i]}</button>
-                  `)
-            if (i === 8) {
+        // Start from the end of the array to display the most recent searches
+        for (var i = savedCitySearched.length - 1; i >= 0; i--) {
+            modalBody.append(`<button>${savedCitySearched[i]}</button>`);
+            
+            // Display only the most recent 9 searches
+            if (savedCitySearched.length - i === 8) {
                 break;
             }
-
         }
 
         historyModal.show();
     }
-
 }
 
 // Click events
