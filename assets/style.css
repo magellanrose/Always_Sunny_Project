@@ -1,21 +1,21 @@
 :root {
-    --primary-color: #192426;
-    --secondary-color: white;
-    --accent-color: #D97C2B;
-    --secondary-accent-color:#53787E; 
-    --button-hover-color:#79AFB7; 
+    --primary-color: #f7e4a6;
+    --secondary-color: #37304b;
+    --accent-color: #f87935;
+    --secondary-accent-color: #362f49;
+    --button-hover-color: #a08ed1;
 }
 
 * {
     margin: 0;
     padding: 0;
     color: var(--secondary-color);
-   font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     background-color: var(--primary-color);
-   
+
 }
 
 h2 {
@@ -39,15 +39,31 @@ header h1 {
 
 }
 
+.modal-content {
+    background-color: var(--primary-color);
+}
+
+.modal {
+
+    --bs-modal-header-border-color: var(--secondary-color);
+    --bs-modal-footer-border-color: var(--secondary-color)
+}
+
+
 footer {
-    background-color: var(--secondary-accent-color);
+    background-color: var(--secondary-color);
     margin-top: 36px;
     padding: 24px;
+}
+
+footer p {
+    color: white
 }
 
 button {
     padding: 3px;
     margin: 6px 0;
+    color: white;
     background-color: var(--secondary-accent-color);
     min-width: 100px;
     /* min-height: 36px; */
@@ -83,15 +99,22 @@ input:focus {
 
 .cards {
     flex-wrap: wrap;
+
     @media screen and (max-width:700px) {
         display: flex;
         flex-direction: column;
     }
 }
 
+
+.titles,
+.output {
+    color: #f7e4a6;
+}
+
 #sun-card,
 #weather-card {
-    
+
     margin: 24px 18px;
     padding: 24px 48px;
     background-color: var(--accent-color);
@@ -100,12 +123,14 @@ input:focus {
     min-width: 425px;
     min-height: 600px;
     border-radius: 10px;
-  
+
 }
 
-.sun-icons, .weather-icons {
+.sun-icons,
+.weather-icons {
     width: 175px;
     margin: 12px 0;
+    fill: white;
 }
 
 .titles {
@@ -114,6 +139,13 @@ input:focus {
 
 .card-content {
     margin-top: 12px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid var(--primary-color);
+    opacity: 1;
+    border-radius: 5px;
 }
 
 /* #image-selector{
@@ -130,9 +162,10 @@ input:focus {
         flex-direction: column;
         width: 400px;
         margin: 24px auto;
-        
+
     }
 }
-button:disabled{
+
+button:disabled {
     background-color: red !important;
 }
