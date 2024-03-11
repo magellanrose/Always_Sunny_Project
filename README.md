@@ -17,7 +17,7 @@ https://github.com/magellanrose/Always_Sunny_Project
 
 ## Usage
 Enter a city into the search bar for the application to give you the information. Example below:<br>
-![Mock-up](./assets/images/Screenshot%20(8).png)
+![Mock-up](assets/images/always-sunny-search.png)
 
 ## License
 MIT license
@@ -36,6 +36,6 @@ Jasvinder Github: https://github.com/jsaini1727<br>
 Jessica Github: https://github.com/Jlvstrasse
 
 ## Mock Up
-![Mock-up](./assets/images/Screenshot%20weatherApp.png)
+![Mock-up](assets/images/always-sunny-screenshot.png)
 
 

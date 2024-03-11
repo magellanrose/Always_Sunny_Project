@@ -25,7 +25,7 @@
             <button id="history-btn" class="hide">History</button>
 
         </div>
-        <div id="history-modal" data-bs-theme="dark" class="modal fade mt-3" tabindex="-1">
+        <div id="history-modal" data-bs-theme="light" class="modal fade mt-3" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -53,27 +53,29 @@
     <section class="cards d-flex justify-content-center">
         <div id="sun-card">
 
-            <h2 class="city-sun-header text-center">Sunrise/Sunset</h2>
+            <h2 class="city-sun-header text-center card-title">Sunrise/Sunset</h2>
+            <hr>
 
             <div class="card-content d-flex flex-column">
 
                 <img class="mx-auto sun-icons" src="./assets/images/sunrise-icon.svg" alt="sunrise icon">
                 <div class="d-flex justify-content-between">
                     <h3 class="titles">Sunrise Time:</h3>
-                    <h3 id="sunrise"></h3>
+                    <h3 class="output" id="sunrise"></h3>
                 </div>
 
                 <img class="mx-auto sun-icons" src="./assets/images/golde-hour-icon.svg" alt="golden hour icon">
                 <div class="d-flex justify-content-between">
                     <h3 class="titles">Golden Hour:</h3>
-                    <h3 id="golden-hour"></h3>
+                    <h3 class="output" id="golden-hour"></h3>
                 </div>
 
                 <img class="mx-auto sun-icons" src="./assets/images/sunset-icon.svg" alt="sunset icon">
                 <div class="d-flex justify-content-between">
                     <h3 class="titles">Sunset Time:</h3>
-                    <h3 id="sunset"></h3>
+                    <h3 class="output" id="sunset"></h3>
                 </div>
+                <hr>
 
             </div>
 
@@ -81,27 +83,29 @@
 
         <div id="weather-card">
 
-            <h2 class="city-weather-header text-center">Weather</h2>
+            <h2 class="city-weather-header text-center card-title">Weather</h2>
+            <hr>
 
             <div class="card-content d-flex flex-column">
 
                 <img class="mx-auto weather-icons" src="assets/images/temp-icon.svg">
                 <div class="d-flex justify-content-between">
                     <h3 class="titles">Temperature:</h3>
-                    <h3 id="current-temperature"></h3>
+                    <h3 class="output" id="current-temperature"></h3>
                 </div>
 
                 <img class="mx-auto weather-icons" src="assets/images/humidity-icon.svg">
                 <div class="d-flex justify-content-between">
                     <h3 class="titles">Humidity:</h3>
-                    <h3 id="current-humidity"></h3>
+                    <h3 class="output" id="current-humidity"></h3>
                 </div>
 
                 <img class="mx-auto weather-icons" src="assets/images/wind-icon.svg">
                 <div class="d-flex justify-content-between">
                     <h3 class="titles">Wind Speed:</h3>
-                    <h3 id="current-windspeed"></h3>
+                    <h3 class="output" id="current-windspeed"></h3>
                 </div>
+                <hr>
 
 
 
