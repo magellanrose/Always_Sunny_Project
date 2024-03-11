@@ -2,13 +2,11 @@ var currentDate = dayjs();
 
 var searchInput = $('#search-text');
 var city = searchInput.val();
-
 var searchBtn = $('#search-btn');
 var modalBtn = $('#modal-btn')
 var historyBtn = $('#history-btn');
 var cityDate = $('#city-date-title')
 var launchModal = $('#launchModal')
-
 
 var modalBody = $('.modal-body')
 var historyModal = $('.modal-content')
@@ -38,9 +36,9 @@ function getCurrentForecast(coords) {
 
             if (city.trim() !== "") {
                 var formattedCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
-                cityDate.text(`${formattedCity}, ${currentDate.format('MMMM, DD, YYYY')}`);
+                cityDate.text(`${formattedCity} - ${currentDate.format('MMMM DD, YYYY')}`);
             } else {
-                cityDate.text(`Current Location, ${currentDate.format('MMMM, DD, YYYY')}`);
+                cityDate.text(`Current Location - ${currentDate.format('MMMM DD, YYYY')}`);
             }
 
             $('#current-humidity').text(`${currentHumidity} %`);
@@ -67,7 +65,6 @@ function getCurrentForecast(coords) {
 
 // Store coordinates to local storage
 function storeCityInLocalStorage(coord) {
-
     if (typeof (Storage) !== 'undefined') {
 
         localStorage.setItem('lon', coord.lon);
@@ -89,7 +86,8 @@ function getUserLocation() {
 
 // Getting search history from local storage
 function getSearchHistory() {
-    var rawDataHistory = localStorage.getItem('search-history');
+    
+    var rawDataHistory = localStorage.getItem('searchHistory');
     var history = JSON.parse(rawDataHistory) || [];
     return history;
 }
@@ -97,6 +95,7 @@ function getSearchHistory() {
 // Saving search history to local storage and avoiding duplicates
 function saveSearchHistory() {
     var history = getSearchHistory();
+    
     var lowerCased = history.map(function (city) {
         return city.toLowerCase();
     });
@@ -118,14 +117,14 @@ function saveSearchHistory() {
             history = history.slice(-8);
         }
 
-        localStorage.setItem('search-history', JSON.stringify(history));
+        localStorage.setItem('searchHistory', JSON.stringify(history));
     }
 }
 
 
 // Outputting saved searches to modal
 function searchHistoryOutput() {
-    var citySearched = localStorage.getItem('search-history');
+    var citySearched = localStorage.getItem('searchHistory');
     var savedCitySearched = JSON.parse(citySearched) || [];
 
     if (savedCitySearched.length) {

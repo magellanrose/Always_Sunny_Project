@@ -1,7 +1,7 @@
 :root {
-    --primary-color: #f7e4a6;
+    --primary-color: skyblue;
     --secondary-color: #37304b;
-    --accent-color: #f87935;
+    --accent-color: #898a92;
     --secondary-accent-color: #362f49;
     --button-hover-color: #a08ed1;
 }
@@ -148,12 +148,6 @@ hr {
     border-radius: 5px;
 }
 
-/* #image-selector{
-    width: 90px;
-    height: 90px;
-    padding: 10px;
-    margin: 20px;
-} */
 
 #sun-card,
 #weather-card {
