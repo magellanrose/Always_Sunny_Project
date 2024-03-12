@@ -38,9 +38,9 @@ function getCurrentForecast(coords) {
 
             if (city.trim() !== "") {
                 var formattedCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
-                cityDate.text(`${formattedCity}, ${currentDate.format('MMMM, DD, YYYY')}`);
+                cityDate.text(`${formattedCity}, ${currentDate.format('MMMM DD, YYYY')}`);
             } else {
-                cityDate.text(`Current Location, ${currentDate.format('MMMM, DD, YYYY')}`);
+                cityDate.text(`Current Location, ${currentDate.format('MMMM DD, YYYY')}`);
             }
 
             $('#current-humidity').text(`${currentHumidity} %`);
