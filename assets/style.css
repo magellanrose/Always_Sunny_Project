@@ -15,6 +15,9 @@
 
 body {
     background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
 }
 
@@ -52,7 +55,7 @@ header h1 {
 
 footer {
     background-color: var(--secondary-color);
-    margin-top: 36px;
+    margin-top: auto;
     padding: 24px;
 }
 
@@ -118,10 +121,9 @@ input:focus {
     margin: 24px 18px;
     padding: 24px 48px;
     background-color: var(--accent-color);
-    height: 75vh;
+    /* height: 75vh; */
     width: 40%;
     min-width: 425px;
-    min-height: 600px;
     border-radius: 10px;
 
 }
